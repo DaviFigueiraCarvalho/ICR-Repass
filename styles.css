@@ -208,6 +208,146 @@ select:disabled {
     display: none !important;
 }
 
+/* ─── Repasse preview ─────────────────────────────────────────────────── */
+.repasse-preview {
+    background-color: rgba(1, 113, 88, 0.15);
+    border: 1px solid var(--primary);
+    border-radius: 0.6rem;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.repasse-preview .material-icons {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+/* ─── Payment area ────────────────────────────────────────────────────── */
+.payment-area {
+    text-align: center;
+    gap: 1.25rem;
+}
+
+.payment-header {
+    width: 100%;
+    text-align: center;
+}
+
+.pix-icon {
+    font-size: 3.5rem;
+    color: #32BCAD;
+    margin-bottom: 0.5rem;
+}
+
+.payment-area h3 {
+    font-size: 1.4rem;
+    margin: 0 0 0.4rem;
+}
+
+.payment-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.payment-subtitle strong {
+    color: var(--text);
+}
+
+.qrcode-wrapper {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: inline-block;
+}
+
+.qrcode-img {
+    width: 200px;
+    height: 200px;
+    display: block;
+}
+
+.pix-copy-section {
+    width: 100%;
+    text-align: left;
+}
+
+.copy-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0 0 0.5rem;
+}
+
+.copy-field {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.pix-input {
+    flex: 1;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.6rem;
+    padding: 0.8rem 1rem;
+    color: var(--text);
+    font-family: monospace;
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.btn-copy {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.6rem;
+    padding: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-copy:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-pix {
+    text-decoration: none;
+    background-color: #32BCAD;
+}
+
+.btn-pix:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+
+.waiting-payment {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spin {
+    animation: spin 1.5s linear infinite;
+    display: inline-block;
+}
+
 /* ─── Responsive ──────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
     body {
