@@ -38,7 +38,7 @@
 
         <div class="form-group">
             <label for="amount">
-                <span class="material-icons">attach_money</span> Valor (R$)
+                <span class="material-icons">attach_money</span> Valor de Arrecadação (R$)
             </label>
             <input
                 type="number"
@@ -50,21 +50,62 @@
             >
         </div>
 
+        <div id="repassePreview" class="repasse-preview hidden">
+            <span class="material-icons">calculate</span>
+            Valor do repasse (10%): <strong>R$ <span id="previewAmount">0,00</span></strong>
+        </div>
+
         <div id="errorMsg" class="error-msg hidden"></div>
 
         <button type="submit" class="btn-submit" id="btnSubmit">
-            <span class="material-icons">done_all</span> Registrar Repass
+            <span class="material-icons">pix</span> Gerar QR Code Pix
         </button>
     </form>
 </div>
 
+<!-- Payment Area -->
+<div id="paymentArea" class="container payment-area hidden">
+    <div class="payment-header">
+        <span class="material-icons pix-icon">pix</span>
+        <h3>Pague o Repasse com Pix</h3>
+        <p class="payment-subtitle">Valor do repasse (10%): <strong>R$ <span id="pixAmount"></span></strong></p>
+    </div>
+
+    <div class="qrcode-wrapper">
+        <img id="pixQrCode" src="" alt="QR Code Pix" class="qrcode-img" />
+    </div>
+
+    <div class="pix-copy-section">
+        <p class="copy-label">Ou copie o código Pix:</p>
+        <div class="copy-field">
+            <input type="text" id="pixCode" class="pix-input" readonly />
+            <button type="button" class="btn-copy" id="btnCopyPix" title="Copiar código Pix">
+                <span class="material-icons">content_copy</span>
+            </button>
+        </div>
+    </div>
+
+    <a id="btnPayPix" href="#" target="_blank" rel="noopener noreferrer" class="btn-submit btn-pix">
+        <span class="material-icons">open_in_new</span> Abrir banco para pagar
+    </a>
+
+    <div class="waiting-payment" id="waitingPayment">
+        <span class="material-icons spin">hourglass_top</span>
+        Aguardando confirmação do pagamento...
+    </div>
+
+    <div id="paymentErrorMsg" class="error-msg hidden"></div>
+</div>
+
+<!-- Success Area -->
 <div id="successArea" class="container success-area hidden">
     <span class="material-icons check-icon">check_circle</span>
     <h3>Repass Registrado!</h3>
     <div class="result-card">
         <p><strong>Igreja:</strong> <span id="resChurch"></span></p>
         <p><strong>Referência:</strong> <span id="resReference"></span></p>
-        <p><strong>Valor:</strong> R$ <span id="resAmount"></span></p>
+        <p><strong>Valor arrecadado:</strong> R$ <span id="resAmountTotal"></span></p>
+        <p><strong>Repasse (10%):</strong> R$ <span id="resAmount"></span></p>
     </div>
     <button class="btn-submit btn-new" id="btnNew">
         <span class="material-icons">add_circle</span> Novo Repass
